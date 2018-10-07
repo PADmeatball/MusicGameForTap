@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartMusic : MonoBehaviour {
 
@@ -8,12 +9,17 @@ public class StartMusic : MonoBehaviour {
     AudioSource targetMusic;
     //押した後に非表示にしたいためButtonUIをいれる。
     public GameObject MusicStaratButton;
+    //押した後に曲名を更新するUI
+    public Text nowPlayMusicName;
 
- 
-	// Use this for initialization
-	void Start () {
+    private MusicNameData musicName;
 
+
+    // Use this for initialization
+    void Start ()
+    { 
         targetMusic = GetComponent<AudioSource>();
+        musicName = GameObject.Find("MusicNameData").GetComponent<MusicNameData>();
         
     }
 
@@ -25,5 +31,7 @@ public class StartMusic : MonoBehaviour {
     {
         targetMusic.Play();
         MusicStaratButton.SetActive(false);
+
+        nowPlayMusicName.text = "Now Play Music\n:" + musicName.GetMusicName(0);
     }
 }

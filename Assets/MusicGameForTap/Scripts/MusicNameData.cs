@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class MusicNameData : MonoBehaviour {
 
-    public const string BGM_ShinigStar = "ShinigStar";
+    private List<string> musicNameData = new List<string>();
+
+    private void Start()
+    {
+        musicNameData.Add("ShinigStar"); 
+    }
+
+    public string GetMusicName(int musicNumber)
+    {
+        return musicNameData[musicNumber];
+    }
 
 }
