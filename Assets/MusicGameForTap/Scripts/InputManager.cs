@@ -7,16 +7,16 @@ public class InputManager : MonoBehaviour {
     //どの指で入力を行ったかを格納する配列
      public bool[] whatFinger = { false, false, false, false, false };
 
-    StartMusic startMusic;
+    MusicStatus musicStatus;
     private void Start()
     {
-        startMusic = GameObject.Find("PlayMusic").GetComponent<StartMusic>();
+        musicStatus = GameObject.Find("MusicManager").GetComponent<MusicStatus>();
     }
     // Update is called once per frame
     void Update () {
 
         //曲がスタートしていたら
-        if (startMusic.isStarted)
+        if (musicStatus.isPlaying)
         {
             //親指
             if (Input.GetKeyDown(KeyCode.A))
@@ -34,12 +34,12 @@ public class InputManager : MonoBehaviour {
                 whatFinger[2] = true;
             }
             //薬指
-            if (Input.GetKeyDown(KeyCode.U))
+            if (Input.GetKeyDown(KeyCode.O))
             {
                 whatFinger[3] = true;
             }
             //小指
-            if (Input.GetKeyDown(KeyCode.O))
+            if (Input.GetKeyDown(KeyCode.U))
             {
                 whatFinger[4] = true;
             }
