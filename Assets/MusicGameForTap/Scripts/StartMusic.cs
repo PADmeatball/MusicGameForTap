@@ -11,10 +11,10 @@ public class StartMusic : MonoBehaviour {
     public GameObject MusicStaratButton;
     //押した後に曲名を更新するUI
     public Text nowPlayMusicName;
-
-    private MusicNameData musicName;
-
-
+    //MusicNameScriptからMusicNameを取ってくる。
+     MusicNameData musicName;
+    //スタートしているかどうか
+    public bool isStarted;
     // Use this for initialization
     void Start ()
     { 
@@ -29,9 +29,13 @@ public class StartMusic : MonoBehaviour {
 	}
     public void OnPushedBottun()
     {
+        //曲を流す
         targetMusic.Play();
+        //StartButtonが邪魔になるので非表示に。
         MusicStaratButton.SetActive(false);
 
+        //現在の曲名を更新
         nowPlayMusicName.text = "Now Play Music\n:" + musicName.GetMusicName(0);
+        isStarted = true;
     }
 }
