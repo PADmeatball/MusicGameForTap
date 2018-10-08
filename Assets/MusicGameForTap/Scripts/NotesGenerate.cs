@@ -5,11 +5,15 @@ using UnityEngine;
 public class NotesGenerate : MonoBehaviour {
 
     InputManager fingerInput;
+
     //Notesを生成するポイントを入れるための配列
     public GameObject[] generateNotesPoint;
 
     //生成したい音符を入れる
     [SerializeField] GameObject Notes;
+
+    //生成したときにオンになるフラグ
+    public bool generateFlag;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +34,8 @@ public class NotesGenerate : MonoBehaviour {
             if (fingerInput.whatFinger[fingerNum])
             {
                 Destroy(Instantiate(Notes, generateNotesPoint[fingerNum].transform.position, Quaternion.identity), 3);
+                
+                generateFlag = true;
                 
                 fingerInput.whatFinger[fingerNum] = false;
             }

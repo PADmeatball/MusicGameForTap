@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveNoteToCreateScene : MonoBehaviour {
+public class MoveNote: MonoBehaviour {
     public float speed;
 	// Use this for initialization
 	void Start () {

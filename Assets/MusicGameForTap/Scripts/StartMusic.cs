@@ -35,7 +35,7 @@ public class StartMusic : MonoBehaviour {
         targetMusic = GetComponent<AudioSource>();
         loadMusicFile = GetComponent<LoadMusicFile>();
         targetMusic.clip = (AudioClip)loadMusicFile.BGM_MusicName[musicNumber];
-        Debug.Log(targetMusic.clip);
+   
 
     }
     public void OnPushedBottun()
@@ -47,7 +47,7 @@ public class StartMusic : MonoBehaviour {
 
         //現在の曲名を更新
         nowPlayMusicName.text = "Now Play Music\n:" + loadMusicFile.BGM_MusicName[musicNumber];
-        Debug.Log(nowPlayMusicName.text);
+ 
         //曲の状態を更新
         musicStatus.isPlaying = true;
         //ボタンの状態を更新
