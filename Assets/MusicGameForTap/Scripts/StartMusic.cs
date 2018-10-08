@@ -45,7 +45,5 @@ public class StartMusic : MonoBehaviour {
         musicStatus.isPlaying = true;
         //ボタンの状態を更新
         buttonStatus.startButtonIsPushed = true;
-
-        Debug.Log("StartButton Pushed");
     }
 }

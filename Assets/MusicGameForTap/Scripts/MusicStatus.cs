@@ -30,9 +30,12 @@ public class MusicStatus : MonoBehaviour {
         {
             if (!Music.isPlaying)
             {
-                isEnd = true;
+                //一度だけ処理するように。
+                if (!isEnd)
+                {
+                    isEnd = true;
 
-                Debug.Log("MusicEnd");
+                }
             }
         }
     }
