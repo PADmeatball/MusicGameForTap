@@ -7,15 +7,14 @@ public class LoadMusicFile : MonoBehaviour {
     public object[] BGM_MusicName;
     public object[] SE_MusicName;
 
-    // Use this for initialization
-    void Start () {
-
+    private void Awake()
+    {
         BGM_MusicName = Resources.LoadAll("Music/BGM", typeof(AudioClip));
         SE_MusicName = Resources.LoadAll("Music/SE", typeof(AudioClip));
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         
 
     }
