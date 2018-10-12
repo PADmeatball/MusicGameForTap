@@ -15,6 +15,8 @@ public class NotesGenerate : MonoBehaviour {
     //Notesを生成するポイントを入れるための配列
     public GameObject[] generateNotesPoint;
 
+    public GameObject[] line;
+
     //生成したい音符を入れる
     [SerializeField] GameObject Notes;
 
@@ -63,7 +65,8 @@ public class NotesGenerate : MonoBehaviour {
                 {
 
                     //Jsonにタイミングとタイプを送る
-                    GenerateTimer.Add(musicTimer);
+                    //生成地点方GoodLineまでの時間分引いておく
+                    GenerateTimer.Add(musicTimer - 2);
                     LineType.Add(fingerNum);
 
                     Destroy(Instantiate(Notes, generateNotesPoint[fingerNum].transform.position, Quaternion.identity), 3);
@@ -80,13 +83,14 @@ public class NotesGenerate : MonoBehaviour {
         {
             bool OKflag = false;
 
-                Debug.Log(musicTimer);
+
             if (!OKflag)
             {
                 //曲が始まった時間と譜面のタイミングが同じになったら
                 if (musicTimer >= loadMusicData.data.NoteGenerateTiming[count])
                 {
-                    Destroy(Instantiate(Notes, generateNotesPoint[loadMusicData.data.LineType[count]].transform.position, Quaternion.identity), 3);
+                    Destroy(Instantiate(Notes, generateNotesPoint[loadMusicData.data.LineType[count]].transform.position,
+                        Quaternion.identity, line[loadMusicData.data.LineType[count]].transform), 3);
                     count++;
                    
                 }
