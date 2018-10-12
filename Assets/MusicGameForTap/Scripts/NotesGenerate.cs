@@ -81,21 +81,20 @@ public class NotesGenerate : MonoBehaviour {
         //gameplayシーンだった場合
         else if (SceneName.SceneName == "PlayGame")
         {
-            bool OKflag = false;
-
-
-            if (!OKflag)
-            {
+           
                 //曲が始まった時間と譜面のタイミングが同じになったら
-                if (musicTimer >= loadMusicData.data.NoteGenerateTiming[count])
+                if (count < loadMusicData.data.NoteGenerateTiming.Count)
                 {
-                    Destroy(Instantiate(Notes, generateNotesPoint[loadMusicData.data.LineType[count]].transform.position,
-                        Quaternion.identity, line[loadMusicData.data.LineType[count]].transform), 3);
-                    count++;
-                   
+                    if (musicTimer >= loadMusicData.data.NoteGenerateTiming[count])
+                    {
+
+                        Destroy(Instantiate(Notes, generateNotesPoint[loadMusicData.data.LineType[count]].transform.position,
+                            Quaternion.identity, line[loadMusicData.data.LineType[count]].transform), 5);
+                        count++;
+                    }
+                    
                 }
-                OKflag = true;
-            }
+            
             
             /*
              JsonからGenerateTimingとLineTypeをもってきて

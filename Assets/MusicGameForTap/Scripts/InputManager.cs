@@ -18,38 +18,33 @@ public class InputManager : MonoBehaviour {
         //曲がスタートしていたら
         if (musicStatus.isPlaying)
         {
-            StartCoroutine(InputCorutin());
+            //親指
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                whatFinger[0] = true;
+            }
+            //人差し指
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                whatFinger[1] = true;
+            }
+            //中指
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                whatFinger[2] = true;
+            }
+            //薬指
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                whatFinger[3] = true;
+            }
+            //小指
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                whatFinger[4] = true;
+            }
         }
     }
 
-    IEnumerator InputCorutin()
-    {
-        //親指
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            whatFinger[0] = true;
-        }
-        //人差し指
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            whatFinger[1] = true;
-        }
-        //中指
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            whatFinger[2] = true;
-        }
-        //薬指
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            whatFinger[3] = true;
-        }
-        //小指
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            whatFinger[4] = true;
-        }
-        yield return new WaitForSeconds(1);
-    }
-   
+    
 }
