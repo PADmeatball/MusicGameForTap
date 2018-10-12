@@ -13,9 +13,5 @@ public class LoadMusicFile : MonoBehaviour {
         SE_MusicName = Resources.LoadAll("Music/SE", typeof(AudioClip));
     }
 
-    // Update is called once per frame
-    void Update () {
-        
-
-    }
+    
 }

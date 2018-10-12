@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NowSelectMusicName : MonoBehaviour {
+public class CurrentSelectMusicName : MonoBehaviour {
 
     
 
