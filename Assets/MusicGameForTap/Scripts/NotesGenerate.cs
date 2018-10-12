@@ -21,27 +21,34 @@ public class NotesGenerate : MonoBehaviour {
     //生成したときにオンになるフラグ
     public bool generateFlag;
 
+    LoadMusicData loadMusicData;
+    int count = 0;
+    float nextNotes;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        
         SceneName = GameObject.Find("SceneManager").GetComponent<ThisSceneName>();
         musicStatus = GameObject.Find("MusicManager").GetComponent<MusicStatus>();
         fingerInput = GameObject.Find("InputManager").GetComponent<InputManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        if (SceneName.SceneName == "PlayGame")
+        {
+            loadMusicData = GameObject.Find("json").GetComponent<LoadMusicData>();
+            loadMusicData.data = loadMusicData.loadData();
+
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         if (musicStatus.isPlaying)
         {
-         
             musicTimer += Time.deltaTime;
 
-        }
-
-        
             NotesCreate();
-        
+        }
        
     }
     void NotesCreate()
@@ -71,6 +78,21 @@ public class NotesGenerate : MonoBehaviour {
         //gameplayシーンだった場合
         else if (SceneName.SceneName == "PlayGame")
         {
+            bool OKflag = false;
+
+                Debug.Log(musicTimer);
+            if (!OKflag)
+            {
+                //曲が始まった時間と譜面のタイミングが同じになったら
+                if (musicTimer >= loadMusicData.data.NoteGenerateTiming[count])
+                {
+                    Destroy(Instantiate(Notes, generateNotesPoint[loadMusicData.data.LineType[count]].transform.position, Quaternion.identity), 3);
+                    count++;
+                   
+                }
+                OKflag = true;
+            }
+            
             /*
              JsonからGenerateTimingとLineTypeをもってきて
              タイミングとラインをあわせてnoteを生成する。

@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 169650609}
   - component: {fileID: 169650608}
+  - component: {fileID: 169650610}
   m_Layer: 0
   m_Name: json
   m_TagString: Untagged
@@ -135,7 +136,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 169650607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 673aaef7aecd72740ad0632d009232ee, type: 3}
   m_Name: 
@@ -160,6 +161,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169650610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169650607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d06cbf29dbd0ae4b85787fe52af07ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    MusicName: 
+    NoteGenerateTiming: []
+    LineType: 
+  loadMusic: {fileID: 0}
+  musicSelect: {fileID: 0}
 --- !u!1 &298616559
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +386,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 419466668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 10}
+  m_LocalPosition: {x: 0, y: -1, z: 18.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832942816}
@@ -925,7 +943,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 935330749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: -1, z: 10}
+  m_LocalPosition: {x: 5, y: -1, z: 18.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832942816}
@@ -955,7 +973,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1076005985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: -1, z: 10}
+  m_LocalPosition: {x: -5, y: -1, z: 18.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832942816}
@@ -1208,7 +1226,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1281633604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -1, z: 10}
+  m_LocalPosition: {x: 2.5, y: -1, z: 18.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832942816}
@@ -1564,7 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicNameText: {fileID: 639111501}
-  MusicStaratButton: {fileID: 1382440079}
+  MusicStaratButton: {fileID: 1336338021}
 --- !u!114 &1509512217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2013,7 +2031,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2001253598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -1, z: 10}
+  m_LocalPosition: {x: -2.5, y: -1, z: 18.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832942816}

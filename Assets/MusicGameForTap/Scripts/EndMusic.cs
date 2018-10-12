@@ -24,8 +24,7 @@ public class EndMusic : MonoBehaviour
         musicStatus = GetComponent<MusicStatus>();
         data.NoteGenerateTiming = new List<float>();
         data.LineType = new List<int>();
-        data2.NoteGenerateTiming = new List<float>();
-        data2.LineType = new List<int>();
+        
     }
 
     // Update is called once per frame
