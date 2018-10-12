@@ -24,7 +24,7 @@ public class SaveMusicData : MonoBehaviour {
 
         string jsonstr = JsonUtility.ToJson(jsondata);
 
-        writer = new StreamWriter(Application.dataPath + "/MusicGameForTap/MusicData/musicdata.json", false);
+        writer = new StreamWriter(Application.dataPath + "/MusicGameForTap/MusicData/" + jsondata.MusicName.ToString()+".json", false);
         writer.Write(jsonstr);
         writer.Flush();
         writer.Close();
@@ -34,7 +34,8 @@ public class SaveMusicData : MonoBehaviour {
     {
         string datastr = "";
         StreamReader reader;
-        reader = new StreamReader(Application.dataPath + "/MusicGameForTap/MusicData/musicdata.json");
+        reader = new StreamReader(Application.dataPath + "/MusicGameForTap/MusicData/" +
+            loadMusic.BGM_MusicName[musicSelect.MusicNumber].ToString() + "/.json");
         datastr = reader.ReadToEnd();
         reader.Close();
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NotesGenerate : MonoBehaviour {
 
+    ThisSceneName SceneName;
     InputManager fingerInput;
     MusicStatus musicStatus;
 
@@ -20,8 +21,10 @@ public class NotesGenerate : MonoBehaviour {
     //生成したときにオンになるフラグ
     public bool generateFlag;
 
+
 	// Use this for initialization
 	void Start () {
+        SceneName = GameObject.Find("SceneManager").GetComponent<ThisSceneName>();
         musicStatus = GameObject.Find("MusicManager").GetComponent<MusicStatus>();
         fingerInput = GameObject.Find("InputManager").GetComponent<InputManager>();
 	}
@@ -35,29 +38,45 @@ public class NotesGenerate : MonoBehaviour {
             musicTimer += Time.deltaTime;
 
         }
-        NotesCreate();
 
+        
+            NotesCreate();
+        
+       
     }
     void NotesCreate()
-    {        
-        //どの指で入力されたのかを確認
-        for (int fingerNum = 0; fingerNum <= 4; fingerNum++)
+    {
+        //createmusicシーンだった場合
+        if (SceneName.SceneName == "CreateNoteToMusic")
         {
-            if (fingerInput.whatFinger[fingerNum])
+            //どの指で入力されたのかを確認
+            for (int fingerNum = 0; fingerNum <= 4; fingerNum++)
             {
+                if (fingerInput.whatFinger[fingerNum])
+                {
 
-                //Jsonにタイミングとタイプを送る
-                GenerateTimer.Add(musicTimer);
-                LineType.Add(fingerNum);
+                    //Jsonにタイミングとタイプを送る
+                    GenerateTimer.Add(musicTimer);
+                    LineType.Add(fingerNum);
 
-                Destroy(Instantiate(Notes, generateNotesPoint[fingerNum].transform.position, Quaternion.identity), 3);
-                
-                generateFlag = true;
-                
-                fingerInput.whatFinger[fingerNum] = false;
+                    Destroy(Instantiate(Notes, generateNotesPoint[fingerNum].transform.position, Quaternion.identity), 3);
+
+                    generateFlag = true;
+
+                    fingerInput.whatFinger[fingerNum] = false;
+                }
+
             }
-            
         }
+        //gameplayシーンだった場合
+        else if (SceneName.SceneName == "PlayGame")
+        {
+            /*
+             JsonからGenerateTimingとLineTypeをもってきて
+             タイミングとラインをあわせてnoteを生成する。
+             */
+        }
+        
     }
    
 }

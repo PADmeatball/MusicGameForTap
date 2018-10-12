@@ -8,7 +8,6 @@ public class EndMusic : MonoBehaviour
 
     MusicStatus musicStatus;
     bool OKflag = false;
-    [SerializeField] Text musicEnd;
 
     SaveMusicData saveMusicData;
     MusicSelect musicSelect;
@@ -21,9 +20,7 @@ public class EndMusic : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-
-        saveMusicData = GameObject.Find("json").GetComponent<SaveMusicData>();
+       saveMusicData = GameObject.Find("json").GetComponent<SaveMusicData>();
         musicStatus = GetComponent<MusicStatus>();
         data.NoteGenerateTiming = new List<float>();
         data.LineType = new List<int>();
@@ -60,7 +57,7 @@ public class EndMusic : MonoBehaviour
                 }
                 saveMusicData.SaveData(data);
 
-                Debug.Log(data);
+
 
 
             }
