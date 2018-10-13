@@ -10,11 +10,13 @@ public class MusicSelect : MonoBehaviour {
 
     ButtonStatus buttonStatus;
     ThisSceneName thisScene;
+    LoadMusicFile loadMusicFile;
 
     
     // Use this for initialization
     void Start () {
 
+        loadMusicFile = GameObject.Find("MusicManager").GetComponent<LoadMusicFile>();
         musicNumber = 0;
         thisScene = GameObject.Find("SceneManager").GetComponent<ThisSceneName>();
         if (!(thisScene.SceneName == "SelectMusic"))
@@ -31,15 +33,22 @@ public class MusicSelect : MonoBehaviour {
     }
     //右のボタンが押されたときの処理
     public void OnRightButton()
-    {        
-        musicNumber += 1;
+    {
+        //BGMの種類以上はmusicNumberが増えないように
+        if (musicNumber < loadMusicFile.BGM_MusicName.Length - 1)
+        {
+            musicNumber += 1;
+        }
         Debug.Log(musicNumber);
     }
     //左のボタンが押されたときの処理
     public void OnLeftButton()
     {
-        
-        musicNumber -= 1;
+        //musicNumberが0以下にならないように。
+        if (musicNumber > 0)
+        {
+            musicNumber -= 1;
+        }
         Debug.Log(musicNumber);
     }
 }
