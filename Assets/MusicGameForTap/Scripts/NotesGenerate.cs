@@ -7,6 +7,8 @@ public class NotesGenerate : MonoBehaviour {
     ThisSceneName SceneName;
     InputManager fingerInput;
     MusicStatus musicStatus;
+    LoadMusicData loadMusicData;
+    AudioSource audioSource;
 
     public  List<float> GenerateTimer;
     public List<int> LineType;
@@ -21,11 +23,8 @@ public class NotesGenerate : MonoBehaviour {
     [SerializeField] GameObject Notes;
 
     //生成したときにオンになるフラグ
-    public bool generateFlag;
-
-    LoadMusicData loadMusicData;
+    public bool generateFlag;   
     int count = 0;
-    float nextNotes;
 
     // Use this for initialization
     void Start () {
@@ -33,6 +32,7 @@ public class NotesGenerate : MonoBehaviour {
         SceneName = GameObject.Find("SceneManager").GetComponent<ThisSceneName>();
         musicStatus = GameObject.Find("MusicManager").GetComponent<MusicStatus>();
         fingerInput = GameObject.Find("InputManager").GetComponent<InputManager>();
+        audioSource = GetComponent<AudioSource>();
 
         if (SceneName.SceneName == "PlayGame")
         {
@@ -55,6 +55,7 @@ public class NotesGenerate : MonoBehaviour {
     }
     void NotesCreate()
     {
+        
         //createmusicシーンだった場合
         if (SceneName.SceneName == "CreateNoteToMusic")
         {
@@ -69,6 +70,8 @@ public class NotesGenerate : MonoBehaviour {
                     GenerateTimer.Add(musicTimer - 2);
                     LineType.Add(fingerNum);
 
+                    //GenerateSEを再生
+                    audioSource.Play();
                     Destroy(Instantiate(Notes, generateNotesPoint[fingerNum].transform.position, Quaternion.identity), 3);
 
                     generateFlag = true;
@@ -87,8 +90,9 @@ public class NotesGenerate : MonoBehaviour {
                 {
                     if (musicTimer >= loadMusicData.data.NoteGenerateTiming[count])
                     {
-
-                        Destroy(Instantiate(Notes, generateNotesPoint[loadMusicData.data.LineType[count]].transform.position,
+                    //GenerateSEを流す
+                    audioSource.Play();
+                    Destroy(Instantiate(Notes, generateNotesPoint[loadMusicData.data.LineType[count]].transform.position,
                             Quaternion.identity, line[loadMusicData.data.LineType[count]].transform), 5);
                         count++;
                     }

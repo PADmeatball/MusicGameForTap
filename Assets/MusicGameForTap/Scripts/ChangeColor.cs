@@ -9,6 +9,7 @@ public class ChangeColor : MonoBehaviour
     [SerializeField] GameObject[] changeTarget;
 
     InputManager inputManager;
+    public bool isChanged;
 
     // Use this for initialization
     void Start()
@@ -40,9 +41,11 @@ public class ChangeColor : MonoBehaviour
     IEnumerator ResetColor(int index)
     {
         changeTarget[index].GetComponent<Renderer>().material.color = new Color(0, 0, 1);
+        isChanged = true;
         //1秒後に元に戻す
         yield return new WaitForSeconds(1);
 
         changeTarget[index].GetComponent<Renderer>().material.color = new Color(0,0,0);
+        
     }
 }
