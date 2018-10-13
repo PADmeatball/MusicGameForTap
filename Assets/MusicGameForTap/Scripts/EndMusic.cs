@@ -15,12 +15,13 @@ public class EndMusic : MonoBehaviour
     MusicDataJson data = new MusicDataJson();
     MusicDataJson data2 = new MusicDataJson();
     NotesGenerate notesGenerate;
-
+    SceneMove sceneMove;
 
     // Use this for initialization
     void Start()
     {
-       saveMusicData = GameObject.Find("json").GetComponent<SaveMusicData>();
+        
+        saveMusicData = GameObject.Find("json").GetComponent<SaveMusicData>();
         musicStatus = GetComponent<MusicStatus>();
         data.NoteGenerateTiming = new List<float>();
         data.LineType = new List<int>();
@@ -37,28 +38,24 @@ public class EndMusic : MonoBehaviour
             if (musicStatus.isEnd)
             {
                 OKflag = true;
+
                 //MusicNameをとる
-                musicSelect = GameObject.Find("MusicManager").GetComponent<MusicSelect>();
+                sceneMove = GameObject.Find("SceneManager").GetComponent<SceneMove>();
                 loadMusic = GameObject.Find("MusicManager").GetComponent<LoadMusicFile>();
                 //data.Musicnameに名前を持ってくる
-                data.MusicName = loadMusic.BGM_MusicName[musicSelect.MusicNumber].ToString();
+                data.MusicName = loadMusic.BGM_MusicName[sceneMove.musicNumber].ToString();
 
                 //NoteGenerateTimingをもってくる
                 notesGenerate = GameObject.Find("NotesManager").GetComponent<NotesGenerate>();
 
                 for (int i = 0; i < notesGenerate.GenerateTimer.Count; i++)
-                {
-                    //data.LineType = notesGenerate.LineType[i];
-                    data.LineType.Add(notesGenerate.LineType[i]);
-                    //data.NoteGenerateTiming = notesGenerate.GenerateTimer[i];
-
+                {                    
+                    data.LineType.Add(notesGenerate.LineType[i]);                  
                     data.NoteGenerateTiming.Add(notesGenerate.GenerateTimer[i]);
                 }
                 saveMusicData.SaveData(data);
 
-
-
-
+                sceneMove.MoveSelect();
             }
         }
     }

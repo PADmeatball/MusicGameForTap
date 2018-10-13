@@ -17,20 +17,15 @@ public class MusicSelect : MonoBehaviour {
     void Start () {
 
         loadMusicFile = GameObject.Find("MusicManager").GetComponent<LoadMusicFile>();
-        musicNumber = 0;
+       
         thisScene = GameObject.Find("SceneManager").GetComponent<ThisSceneName>();
         if (!(thisScene.SceneName == "SelectMusic"))
         {
-            buttonStatus = GameObject.Find("PlayMusicButton").GetComponent<ButtonStatus>();
+           // buttonStatus = GameObject.Find("PlayMusicButton").GetComponent<ButtonStatus>();
         }
        
     }
 	
-	// Update is called once per frame
-	void Update () {
-
-       
-    }
     //右のボタンが押されたときの処理
     public void OnRightButton()
     {

@@ -7,10 +7,6 @@ public class LoadMusicFile : MonoBehaviour {
     public object[] BGM_MusicName;
     public object[] SE_MusicName;
 
-     enum BGM
-    {
-        ShinigStar,
-    };
     
     private void Awake()
     {

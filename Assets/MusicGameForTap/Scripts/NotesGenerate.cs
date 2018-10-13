@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NotesGenerate : MonoBehaviour {
 
-    ThisSceneName SceneName;
+    ThisSceneName sceneName;
     InputManager fingerInput;
     MusicStatus musicStatus;
     LoadMusicData loadMusicData;
@@ -29,12 +29,12 @@ public class NotesGenerate : MonoBehaviour {
     // Use this for initialization
     void Start () {
         
-        SceneName = GameObject.Find("SceneManager").GetComponent<ThisSceneName>();
+        sceneName = GameObject.Find("SceneManager").GetComponent<ThisSceneName>();
         musicStatus = GameObject.Find("MusicManager").GetComponent<MusicStatus>();
         fingerInput = GameObject.Find("InputManager").GetComponent<InputManager>();
         audioSource = GetComponent<AudioSource>();
 
-        if (SceneName.SceneName == "PlayGame")
+        if (sceneName.SceneName == "PlayGame")
         {
             loadMusicData = GameObject.Find("json").GetComponent<LoadMusicData>();
             loadMusicData.data = loadMusicData.loadData();
@@ -57,7 +57,7 @@ public class NotesGenerate : MonoBehaviour {
     {
         
         //createmusicシーンだった場合
-        if (SceneName.SceneName == "CreateNoteToMusic")
+        if (sceneName.SceneName == "CreateNoteToMusic")
         {
             //どの指で入力されたのかを確認
             for (int fingerNum = 0; fingerNum <= 4; fingerNum++)
@@ -82,7 +82,7 @@ public class NotesGenerate : MonoBehaviour {
             }
         }
         //gameplayシーンだった場合
-        else if (SceneName.SceneName == "PlayGame")
+        else if (sceneName.SceneName == "PlayGame")
         {
            
                 //曲が始まった時間と譜面のタイミングが同じになったら

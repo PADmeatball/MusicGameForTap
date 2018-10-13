@@ -11,7 +11,6 @@ public class LoadMusicData : MonoBehaviour {
     public LoadMusicFile loadMusic;
     public MusicSelect musicSelect;
     MusicStatus musicStatus;
-    bool onceFlag = false;
 
     // Use this for initialization
     void Start () {
