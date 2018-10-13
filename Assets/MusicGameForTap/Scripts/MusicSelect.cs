@@ -34,21 +34,22 @@ public class MusicSelect : MonoBehaviour {
     //右のボタンが押されたときの処理
     public void OnRightButton()
     {
-        //BGMの種類以上はmusicNumberが増えないように
-        if (musicNumber < loadMusicFile.BGM_MusicName.Length - 1)
-        {
-            musicNumber += 1;
-        }
-        Debug.Log(musicNumber);
-    }
-    //左のボタンが押されたときの処理
-    public void OnLeftButton()
-    {
         //musicNumberが0以下にならないように。
         if (musicNumber > 0)
         {
             musicNumber -= 1;
         }
         Debug.Log(musicNumber);
+    }
+    //左のボタンが押されたときの処理
+    public void OnLeftButton()
+    {
+        //BGMの種類以上はmusicNumberが増えないように
+        if (musicNumber < loadMusicFile.BGM_MusicName.Length - 1)
+        {
+            musicNumber += 1;
+        }
+        Debug.Log(musicNumber);
+        
     }
 }
