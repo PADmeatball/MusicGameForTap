@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/MusicGameForTap/Scenes/SelectMusic.unity
+    guid: e00a2a3e11437cb46a9f61c66128c4bf
+  - enabled: 1
+    path: Assets/MusicGameForTap/Scenes/CreateNoteToMusic.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/MusicGameForTap/Scenes/PlayGame.unity
+    guid: 37b9f4a5532aaba48a58b6710d70911d
   m_configObjects: {}

@@ -512,8 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1846841dcb47b9e469c2fe01bddcebb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightOn: 0
-  leftOn: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,48 +1539,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1458086699
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 527.35205
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1176.1201
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 2556.6084
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025231086558280, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 732dcf01ccd409046851e5b5524bce67, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1481387285
 GameObject:
   m_ObjectHideFlags: 0

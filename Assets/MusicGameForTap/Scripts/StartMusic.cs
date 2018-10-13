@@ -26,7 +26,7 @@ public class StartMusic : MonoBehaviour {
     ButtonStatus buttonStatus;
 
     //musicNumberをもってくる
-    MusicSelect musicSelect;
+    SceneMove musicSelect;
 
     // Use this for initialization
     void Start ()
@@ -35,8 +35,8 @@ public class StartMusic : MonoBehaviour {
         musicStatus = GetComponent<MusicStatus>();
         targetMusic = GetComponent<AudioSource>();
         loadMusicFile = GetComponent<LoadMusicFile>();
-        musicSelect = GetComponent<MusicSelect>();
-        targetMusic.clip = (AudioClip)loadMusicFile.BGM_MusicName[musicSelect.MusicNumber];
+        musicSelect = GameObject.Find("SceneManager").GetComponent<SceneMove>();
+        targetMusic.clip = (AudioClip)loadMusicFile.BGM_MusicName[musicSelect.musicNumber];
        
     }
    
