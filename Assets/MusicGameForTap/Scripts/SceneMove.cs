@@ -39,9 +39,10 @@ public class SceneMove : MonoBehaviour {
         
     }
     public void OnMoveSceneButtonPlay()
-    {                         
-            SceneManager.LoadScene("PlayGame");
-        
+    {
+        musicNumber = musicSelect.MusicNumber;
+        SceneManager.LoadScene("PlayGame");
+       
     }
 
     IEnumerator Wait1second()
