@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class MusicSelect : MonoBehaviour {
 
-    int musicNumber;
     //musicNumberを設定
-    public int MusicNumber { get { return musicNumber; } }
+    public int MusicNumber;
 
     ButtonStatus buttonStatus;
     ThisSceneName thisScene;
@@ -30,21 +29,18 @@ public class MusicSelect : MonoBehaviour {
     public void OnRightButton()
     {
         //musicNumberが0以下にならないように。
-        if (musicNumber > 0)
+        if (MusicNumber > 0)
         {
-            musicNumber -= 1;
+            MusicNumber -= 1;
         }
-        Debug.Log(musicNumber);
     }
     //左のボタンが押されたときの処理
     public void OnLeftButton()
     {
         //BGMの種類以上はmusicNumberが増えないように
-        if (musicNumber < loadMusicFile.BGM_MusicName.Length - 1)
+        if (MusicNumber < loadMusicFile.BGM_MusicName.Length - 1)
         {
-            musicNumber += 1;
-        }
-        Debug.Log(musicNumber);
-        
+            MusicNumber += 1;
+        }                
     }
 }

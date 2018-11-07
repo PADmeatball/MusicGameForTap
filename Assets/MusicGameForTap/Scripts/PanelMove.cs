@@ -21,9 +21,8 @@ public class PanelMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-
        musicPanel[0].transform.position = panelPoint[2 - musicSelect.MusicNumber].transform.position;
+        Debug.Log(musicSelect.MusicNumber);
        musicPanel[1].transform.position = panelPoint[3 - musicSelect.MusicNumber].transform.position;
        musicPanel[2].transform.position = panelPoint[4 - musicSelect.MusicNumber].transform.position;
       
