@@ -67,7 +67,7 @@ public class NotesGenerate : MonoBehaviour {
 
                     //Jsonにタイミングとタイプを送る
                     //生成地点方GoodLineまでの時間分引いておく
-                    GenerateTimer.Add(musicTimer - 2);
+                    GenerateTimer.Add(musicTimer);
                     LineType.Add(fingerNum);
 
                     //GenerateSEを再生
@@ -88,7 +88,7 @@ public class NotesGenerate : MonoBehaviour {
                 //曲が始まった時間と譜面のタイミングが同じになったら
                 if (count < loadMusicData.data.NoteGenerateTiming.Count)
                 {
-                    if (musicTimer >= loadMusicData.data.NoteGenerateTiming[count])
+                    if (musicTimer >= loadMusicData.data.NoteGenerateTiming[count] - 2.8f)
                     {
                     //GenerateSEを流す
                     audioSource.Play();

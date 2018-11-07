@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using UnityEditor;
 
 public class EndMusic : MonoBehaviour
 {
 
     MusicStatus musicStatus;
-    bool OKflag = false;
+    bool onceflag = false;
 
     SaveMusicData saveMusicData;
     MusicSelect musicSelect;
@@ -16,6 +18,7 @@ public class EndMusic : MonoBehaviour
     MusicDataJson data2 = new MusicDataJson();
     NotesGenerate notesGenerate;
     SceneMove sceneMove;
+    
 
     // Use this for initialization
     void Start()
@@ -31,13 +34,13 @@ public class EndMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!OKflag)
+        if (!onceflag)
         {
             
             //曲が終了した後の処理
             if (musicStatus.isEnd)
             {
-                OKflag = true;
+                onceflag = true;
 
                 //MusicNameをとる
                 sceneMove = GameObject.Find("SceneManager").GetComponent<SceneMove>();
@@ -54,6 +57,8 @@ public class EndMusic : MonoBehaviour
                     data.NoteGenerateTiming.Add(notesGenerate.GenerateTimer[i]);
                 }
                 saveMusicData.SaveData(data);
+                File.Delete("C:/Users/MuiraRyuta/Documents/UnityPackage/MusicGameForTap/Assets/MusicGameForTap/MusicData/" + data.MusicName + ".json.meta");
+                AssetDatabase.ImportAsset("Assets/MusicGameForTap/MusicData/" + data.MusicName, ImportAssetOptions.Default);
 
                 sceneMove.MoveSelect();
             }
